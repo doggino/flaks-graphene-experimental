@@ -1,12 +1,12 @@
-#graphene-flask-example
+# graphene-flask-example
 
-Exemplo de uma API [GraphQL](http://graphql.org/) usando [Graphene](http://docs.graphene-python.org/en/latest/quickstart/), [Flask GraphQL](https://github.com/graphql-python/flask-graphql) e [Graphene-SQLAlchemy](http://docs.graphene-python.org/projects/sqlalchemy/en/latest/).
+Example of an API [GraphQL](http://graphql.org/) using [Graphene](http://docs.graphene-python.org/en/latest/quickstart/), [Flask GraphQL](https:/ /github.com/graphql-python/flask-graphql) and [Graphene-SQLAlchemy](http://docs.graphene-python.org/projects/sqlalchemy/en/latest/).
 
-##Instalação
+## Installation
 
-###Virtualenv
+### Virtualenv
 
-[Instalação](https://virtualenv.pypa.io/en/stable/installation/)
+[Installation](https://virtualenv.pypa.io/en/stable/installation/)
 
 ```
   virtualenv --python python3 venv
@@ -15,54 +15,54 @@ Exemplo de uma API [GraphQL](http://graphql.org/) usando [Graphene](http://docs.
   pip install -r requirements-dev.txt
 ```
 
-###Tox
+### Tox
 
-[Instalação](https://tox.readthedocs.io/en/latest/)
+[Installation](https://tox.readthedocs.io/en/latest/)
 
 ```
 tox
 ```
 
-###Docker-Compose
+### Docker-Compose
 
-[Instalação](https://docs.docker.com/compose/install/)
-
-```
-docker-compose up #cria e executa os containers web e db
-docker-compose run --service-ports --name user_api_flask_web web --rm #permite que o servidor da aplicação pare em breakpoints
-docker-compose exec web bash #abre o terminal do container web
-docker-compose exec db mysql #abre o CLI do mysql no container db
-```
-
-##Configuração do ambiente local
-
-Crie um arquivo local .env baseado no arquivo .env.sample.
-
-##Execução do servidor local
+[Installation](https://docs.docker.com/compose/install/)
 
 ```
-  python run.py #executa o servidor local na porta 3000
+docker-compose up #create and run web and db containers
+docker-compose run --service-ports --name user_api_flask_web web --rm #allow application server to stop on breakpoints
+docker-compose exec web bash #open the web container terminal
+docker-compose exec db mysql #open mysql CLI in db container
 ```
 
-##Versionamento do banco de dados
+## Setting the local environment
 
-A aplicação usa o [Flask-Migrate](https://github.com/miguelgrinberg/Flask-Migrate) para fazer o versionamento do banco de dados.
+Create a local .env file based on the .env.sample file.
 
-Primeiramente crie o banco de dados dos ambientes de desenvolvimento e teste.
+## Run from local server
+
+```
+  python run.py #run local server on port 3000
+```
+
+## Database versioning
+
+The application uses [Flask-Migrate](https://github.com/miguelgrinberg/Flask-Migrate) to do database versioning.
+
+First create the database for the development and test environments.
 
 ```
 mysql -e "create database user_db;"
 mysql -e "create database user_db_test;"
 ```
 
-Em seguida:
+Right away:
 
 ```
-python manage.py db migrate #cria migração caso haja mudança no schema do banco de dados
-python manage.py db upgrade #executa as migrações do banco de dados
+python manage.py db migrate #create migration if there is a change in the database schema
+python manage.py db upgrade #run database migrations
 ```
 
-###Rotas
+### Routes
 
 ```
 
@@ -72,13 +72,13 @@ GET /api/graphql
 
 ```
 
-##Execução dos testes unitários
+## Execution of unit tests
 
 ```
 pytest
 ```
 
-###Linter
+## Linter
 
 ```
 flake8 tests user_api
